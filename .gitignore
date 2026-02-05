@@ -1,0 +1,18 @@
+# Ignore raw data files
+data/raw/*.csv
+
+# Ignore ClickHouse database files
+data/clickhouse/
+data/system/
+
+# Ignore compiled Python files and environment settings
+**/__pycache__/
+*.pyc
+
+# Ignore environment variable files
+.env/
+
+# Ignore system files Mac/Windows and IDE settings
+.DS_Store
+Thumbs.db
+.vscode/
