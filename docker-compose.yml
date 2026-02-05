@@ -1,0 +1,32 @@
+services:
+  warehouse_db:
+    image: clickhouse/clickhouse-server
+    container_name: my_warehouse
+    environment:
+      - CLICKHOUSE_DB=${CLICKHOUSE_DB}
+      - CLICKHOUSE_USER=${CLICKHOUSE_USER}
+      - CLICKHOUSE_PASSWORD=${CLICKHOUSE_PASSWORD}
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - ./data/clickhouse:/var/lib/clickhouse/data
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+  
+  etl_runner:
+    build: ./pipeline
+    environment:
+      - CLICKHOUSE_DB=${CLICKHOUSE_DB}
+      - CLICKHOUSE_USER=${CLICKHOUSE_USER}
+      - CLICKHOUSE_PASSWORD=${CLICKHOUSE_PASSWORD}
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./pipeline:/app/pipeline
+      - ./dashboard:/app/dashboard
+    depends_on:
+      - warehouse_db
