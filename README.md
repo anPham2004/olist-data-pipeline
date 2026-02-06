@@ -91,13 +91,23 @@ docker-compose up --build
 Once you see "Streamlit" logs in the terminal, go to: http://localhost:8501
 
 ## Dashboard Demo
+Below are screenshots of the dashboard built with **Streamlit** and **Plotly**, demonstrating key insights derived from the data.
+* **1. Executibe summary (KPIs)**
+A high-level view of business performance. The dashboard calculates total revenue, order count and unique customers in real-time based on the selected year.
+![KPI overview](images/dashboard_kpi.png)
 
-* **1. Sales Performance & KPIs**
+* **2. Sales trends and Product performance**
+**Monthly Revenue Trend:** Visualizes seasonality and sales spikes throughout the year.
+![Monthly Trend](images/dashboard_monthly_trend.png)
 
-* **2. Geographic & Payment Analysis**
+**Top Products:** Identifies best-selling categories (e.g., Health & Beauty, Bed Bath Table) to support inventory decisions.
+![Top Products](images/dashboard_top_products.png)
 
-## Author
+* **3. Financial and Payment analysis**
+**Payment Habits:** A Sunburst chart reveals that Credit Card is the dominant payment method (79%), followed by Boleto.
+**Installments:** Analyzes the correlation between order volume and installment plans, showing a preference for 1-time payments but a significant long-tail of installment users.
+![Finance Analysis](images/dashboard_finance.png)
 
-* **Pham Thai An**
-    * **LinkedIn:**
-    * **GitHub:** 
+* **4. Geospatial distribution**
+**Revenue by State:** A Treemap visualization highlights Sao Paulo (SP) as the primary market, contributing the largest share of revenue, followed by RJ and MG.
+![Geospatial Analysis](images/dashboard_geo.png)
